@@ -5,9 +5,14 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 md:pb-28 md:pt-28">
         <div className="flex flex-col items-center text-center">
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-secondary/5 px-4 py-1.5 text-xs font-medium text-secondary">
-            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-secondary" />
-            Agencia de software · Diseño + Ingeniería
+          
+          {/* Badge Dinámico de Disponibilidad / Recomendación Pro */}
+          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-secondary/10 px-4 py-1.5 text-xs font-semibold text-secondary">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary"></span>
+            </span>
+            Disponible para Auditorías ISO 19011:2018 y Asesorías TI
           </span>
 
           <h1 className="max-w-4xl text-balance font-display text-5xl font-bold leading-[1.05] tracking-tight text-foreground md:text-7xl">
