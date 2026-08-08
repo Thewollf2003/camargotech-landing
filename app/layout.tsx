@@ -19,7 +19,10 @@ export const metadata: Metadata = {
   title: 'CamargoTech — Desarrollo web, apps móviles y productos digitales',
   description:
     'CamargoTech es una agencia de software que diseña y construye webs, aplicaciones móviles y productos digitales rápidos, accesibles e innovadores.',
-  generator: 'v0.app',
+  verification: {
+    google: 'FR7fRg_k7GmeWN2MNxByzAKS73OPHD7Jkt5_FAfBfaA',
+  },
+    generator: 'v0.app',
 }
 
 export const viewport: Viewport = {
