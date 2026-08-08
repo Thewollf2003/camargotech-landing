@@ -11,9 +11,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "El correo es requerido" }, { status: 400 });
     }
 
-    await resend.emails.send({
+    // Enviamos el correo a TU bandeja personal
+    const { data, error } = await resend.emails.send({
       from: "CamargoTech <onboarding@resend.dev>",
-      to: "and43s2003@gmail.com", //[cite: 1]
+      to: "and43s2003@gmail.com",
       subject: "⚡ Nuevo Cliente Potencial - CamargoTech",
       html: `
         <div style="font-family: sans-serif; padding: 20px;">
@@ -24,8 +25,16 @@ export async function POST(req: Request) {
       `,
     });
 
-    return NextResponse.json({ success: true });
+    if (error) {
+      console.error("Error directo de Resend:", error);
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    console.log("Correo enviado con éxito ID:", data?.id);
+    return NextResponse.json({ success: true, id: data?.id });
+
   } catch (error) {
+    console.error("Error catch general:", error);
     return NextResponse.json({ error: "Error enviando correo" }, { status: 500 });
   }
 }
