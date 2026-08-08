@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: "CamargoTech <onboarding@resend.dev>",
-      to: "antoninocamargo2003@gmail.com", //[cite: 1]
+      to: "and43s2003@gmail.com", //[cite: 1]
       subject: "⚡ Nuevo Cliente Potencial - CamargoTech",
       html: `
         <div style="font-family: sans-serif; padding: 20px;">
