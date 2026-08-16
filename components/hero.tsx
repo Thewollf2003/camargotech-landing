@@ -1,39 +1,53 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 
+const titles = [
+  "Construimos tecnología que impulsa tu próximo paso",
+  "Convierte tus ideas en soluciones que generan resultados",
+  "Haz que tu negocio avance con software a tu medida",
+  "Protege, repara y transforma tu operación digital",
+]
+
 export function Hero() {
+  const [titleIndex, setTitleIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setTitleIndex((current) => (current + 1) % titles.length)
+    }, 30000)
+
+    return () => window.clearInterval(interval)
+  }, [])
+
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 md:pb-28 md:pt-28">
         <div className="flex flex-col items-center text-center">
-          
-          {/* Badge Dinámico de Disponibilidad / Recomendación Pro */}
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-secondary/10 px-4 py-1.5 text-xs font-semibold text-secondary">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary"></span>
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-secondary opacity-75" />
+              <span className="relative inline-flex size-2 rounded-full bg-secondary" />
             </span>
             Disponible para Auditorías ISO 19011:2018 y Asesorías TI
           </span>
 
           <h1 className="max-w-4xl text-balance font-display text-5xl font-bold leading-[1.05] tracking-tight text-foreground md:text-7xl">
-            Construimos <span className="text-primary">webs, apps móviles</span> y productos digitales que la gente ama
+            <span key={titleIndex} className="block animate-in fade-in duration-700">
+              {titles[titleIndex]}
+            </span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
-            En CamargoTech convertimos ideas en software rápido, accesible e innovador. Del prototipo al producto,
-            diseñamos y desarrollamos con precisión de ingeniería.
+            En CamargoTech convertimos ideas en software rápido, accesible e innovador. También auditamos, reparamos y fortalecemos la tecnología que sostiene tu negocio.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
             <Button asChild size="lg" className="w-full rounded-full px-8 text-base sm:w-auto">
               <a href="#contacto">Empezar un proyecto</a>
             </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="w-full rounded-full border-secondary/40 px-8 text-base text-secondary hover:bg-secondary/5 hover:text-secondary sm:w-auto"
-            >
+            <Button asChild size="lg" variant="outline" className="w-full rounded-full border-secondary/40 px-8 text-base text-secondary hover:bg-secondary/5 hover:text-secondary sm:w-auto">
               <a href="#servicios">Ver servicios</a>
             </Button>
           </div>
@@ -55,3 +69,5 @@ export function Hero() {
     </section>
   )
 }
+
+export { titles }

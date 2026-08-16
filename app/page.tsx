@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero"
 import { Services } from "@/components/services"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import { WhatsAppFloat } from "@/components/whatsapp-float"
 
 export default function Page() {
   return (
@@ -12,6 +13,7 @@ export default function Page() {
       <Services />
       <Contact />
       <Footer />
+      <WhatsAppFloat />
     </main>
   )
 }
